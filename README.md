@@ -26,7 +26,7 @@ Docker container with CUPS, Apple AirPrint (Avahi) and Google Cloud Print.
 - Avahi and GCP need dbus to run, so the container comes with it. There is an option to use the host's dbus; you can map `/var/run/dbus` to the host and then set `DBUS` to false.
 
 ### Setup Google Cloud Print
-Since GCP needs to be configured to allow for printing outside the network, a one-shot docker command can be run to run the built in interactive config tool. By default, a config file is generated on first run if it does not exists with local printing only.
+Since GCP needs to be configured to allow for printing outside the network, a one-shot docker command can be run to run the built in interactive config tool. By default, a config file is generated on first run with local printing only if it does not exists.
 
 To run the tool, make sure the directories exist in the first place: `/data/gcp` or on host: `/path/to/container/gcp`
 
