@@ -1,0 +1,9 @@
+#!/bin/bash
+
+# Wait for dbus
+if [ ! -e /var/run/dbus/system_bus_socket ]; then exit 1; fi
+
+# Start Avahi
+echo "Starting Avahi"
+exec 2>&1
+exec /usr/sbin/avahi-daemon --syslog -f /data/avahi/avahi-daemon.conf

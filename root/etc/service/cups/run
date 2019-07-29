@@ -1,0 +1,11 @@
+#!/bin/bash
+
+# Wait for dbus
+if [ ! -e /var/run/dbus/system_bus_socket ]; then exit 1; fi
+# Wait for Avahi
+if [ ! $(/usr/sbin/avahi-daemon --check; echo $?) ]; then exit 1; fi
+
+# Start CUPS
+echo "Starting CUPS"
+exec 2>&1
+exec /usr/sbin/cupsd -f -c /data/cups/cupsd.conf

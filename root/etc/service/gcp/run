@@ -1,0 +1,13 @@
+#!/bin/bash
+
+# Wait for dbus
+if [ ! -e /var/run/dbus/system_bus_socket ]; then exit 1; fi
+# Wait for Avahi
+if [ ! $(/usr/sbin/avahi-daemon --check; echo $?) ]; then exit 1; fi
+# Wait for CUPS
+if [ ! $(curl -sk localhost:631 >/dev/null; echo $?) ]; then exit 1; fi
+
+echo "Starting GCP"
+# Start GCP service
+exec 2>&1
+exec /usr/bin/gcp-cups-connector --config-filename --log-to-console /data/gcp/gcp-cups-connector.config.json
