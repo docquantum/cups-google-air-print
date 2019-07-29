@@ -67,9 +67,9 @@ services:
         restart: unless-stopped
         network_mode: host
         devices:
-            - "/dev/bus/usb":"/dev/bus/usb"
+            - /dev/bus/usb:/dev/bus/usb
         volumes:
-            - "/home/user/containers/cups-gcp":"/data"
+            - /home/user/containers/cups-gcp:/data
         environment:
             - "TZ"="America/Arizona"
             - "CUPS_USER_ADMIN"="admin"
