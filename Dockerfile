@@ -2,7 +2,7 @@ FROM phusion/baseimage:0.11
 LABEL MAINTAINER="Daniel Shchur (DocQuantum) <shchurgood@gmail.com>"
 
 # Set environment variables
-ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" DEBIAN_FRONTEND="noninteractive" TERM="xterm" CUPS_USER_ADMIN="cupsgcp" CUPS_USER_PASSWORD="password" DBUS=FALSE
+ENV LANG="en_US.UTF-8" LANGUAGE="en_US.UTF-8" DEBIAN_FRONTEND="noninteractive" TERM="xterm" CUPS_USER_ADMIN="cupsgcp" CUPS_USER_PASSWORD="password" DBUS=TRUE
 
 # Install Dependencies, remove non-necessary services, gen locales
 RUN \
