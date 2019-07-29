@@ -5,10 +5,9 @@ set -e
 CUPS_USER_ADMIN=${CUPS_USER_ADMIN:-cupsgcp}
 CUPS_USER_PASSWORD=${CUPS_USER_PASSWORD:-password}
 
-if [ id "$CUPS_USER_ADMIN" >/dev/null 2>&1 ]; then
-    echo "Fixing password"
+if [ $(id "$CUPS_USER_ADMIN" >/dev/null 2>&1; echo $?) ]; then
+    echo "Updating password"
     echo "${CUPS_USER_ADMIN}:${CUPS_USER_PASSWORD}" | chpasswd
-    echo "Fixing group/user IDs"
 else
     echo "***** Adding user & group \"${CUPS_USER_ADMIN}\" *****"
     useradd -r -d /config -s /bin/false ${CUPS_USER_ADMIN}
