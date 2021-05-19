@@ -1,4 +1,9 @@
 # Cups Google/Air Print
+
+## ARCHIVED!
+
+Google print is being deprecated which means this container no longer really needs to exist. It still works, but there are still issues with it that I never resolved. Check out [tigerj/cups-airprint](https://hub.docker.com/r/tigerj/cups-airprint), it seems like a very good cups container.
+
 Inspired by [mnbf9rca/cups-google-print](https://github.com/mnbf9rca/cups-google-print)
 
 Built with metal in mind (a physical linux server/system).
